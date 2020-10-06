@@ -7,11 +7,13 @@ export default function Form({ setInputText, todos, setTodos, inputText, setStat
     }
     const submitTodoHandler = (e) => {
         e.preventDefault();
-        setTodos([
-            ...todos,
-            { text: inputText, completed: false, id: Math.random() }
-        ]);
-        setInputText('')
+        if (inputText !== '') {
+            setTodos([
+                ...todos,
+                { text: inputText, completed: false, id: Math.random() }
+            ]);
+            setInputText('')
+        }
     }
     const statusHandler = (e) => {
         setStatus(e.target.value)
